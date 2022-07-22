@@ -7,7 +7,7 @@ const todoRouter = require("./routes/todo");
 const errorHandler = require("./controller/errorHandler");
 
 const app = express();
-const port = process.env.PORT || 5050;
+const port = process.env.PROJECT_PORT || 5050;
 
 // middlewares
 app.use(express.json());
@@ -26,7 +26,9 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("db connected!");
-    app.listen(process.env.PROJECT_PORT);
+    app.listen(port, () => {
+      console.log(`server running on port ${port}`);
+    });
   })
   .catch((err) => {
     console.log("err db :", err);

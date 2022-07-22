@@ -5,8 +5,9 @@ const Todo = sequelize.define("Todo", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
+    autoIncrementIdentity: true,
     primaryKey: true,
-    allowNull: false,
+    allowNull: true,
   },
   title: {
     type: DataTypes.STRING,
@@ -14,8 +15,15 @@ const Todo = sequelize.define("Todo", {
   },
   completed: {
     type: DataTypes.BOOLEAN,
-    allowNull: true,
+    defaultValue: false,
+    allowNull: true, // default is true
   },
-})
+  createdAt: {
+    type: DataTypes.TIME,
+  },
+  updatedAt: {
+    type: DataTypes.TIME,
+  },
+});
 
 module.exports = Todo;
