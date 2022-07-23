@@ -1,5 +1,5 @@
 const Todo = require("../model/todo");
-const throwError = require("./throwError");
+const throwError = require("../middleware/throwError");
 
 const getAllTodos = async (req, res, next) => {
   try {
@@ -21,10 +21,9 @@ const getAllTodos = async (req, res, next) => {
 };
 
 const createTodo = async (req, res, next) => {
-  const { id, title, completed, createdAt, updatedAt } = req.body;
+  const { title, completed, createdAt, updatedAt } = req.body;
   try {
     const createdTodo = await Todo.create({
-      id,
       title,
       completed,
       createdAt,

@@ -4,7 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv").config();
 const sequelize = require("./db/connectDB");
 const todoRouter = require("./routes/todo");
-const errorHandler = require("./controller/errorHandler");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 const port = process.env.PROJECT_PORT || 5050;
