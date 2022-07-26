@@ -21,6 +21,10 @@ app.get("/", (req, res) => {
   res.send("Home Page");
 });
 
+app.all("*", (req, res) => {
+  res.send("404 not found");
+});
+
 // connect db
 sequelize
   .authenticate()
@@ -31,5 +35,5 @@ sequelize
     });
   })
   .catch((err) => {
-    console.log("err db :", err);
+    console.log("unable to connect db :", err);
   });
