@@ -3,11 +3,10 @@ const sequelize = require("../db/connectDB");
 
 const Todo = sequelize.define("Todo", {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    autoIncrementIdentity: true,
+    type: DataTypes.UUID,
     primaryKey: true,
-    allowNull: true,
+    allowNull: false,
+    defaultValue: DataTypes.UUIDV4,
   },
   title: {
     type: DataTypes.STRING,
@@ -17,12 +16,6 @@ const Todo = sequelize.define("Todo", {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
     allowNull: true, // default is true
-  },
-  createdAt: {
-    type: DataTypes.TIME,
-  },
-  updatedAt: {
-    type: DataTypes.TIME,
   },
 });
 

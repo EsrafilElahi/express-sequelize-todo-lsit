@@ -21,13 +21,11 @@ const getAllTodos = async (req, res, next) => {
 };
 
 const createTodo = async (req, res, next) => {
-  const { title, completed, createdAt, updatedAt } = req.body;
+  const { title, completed } = req.body;
   try {
     const createdTodo = await Todo.create({
       title,
       completed,
-      createdAt,
-      updatedAt,
     });
     if (!createTodo) {
       throwError("did not created todo", 400);
