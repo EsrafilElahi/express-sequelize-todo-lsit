@@ -26,6 +26,7 @@ app.all("*", (req, res) => {
 });
 
 // connect db
+sequelize.sync({ force: true });
 sequelize
   .authenticate()
   .then(() => {
