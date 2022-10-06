@@ -73,7 +73,7 @@ const deleteTodo = async (req, res, next) => {
   const { id } = req.params;
   try {
     await Todo.destroy({ where: { id: id } });
-    if (Todo.findByPk({ where: { id: id } })) {
+    if (!Todo.findByPk({ where: { id: id } })) {
       throwError("did not deleted the todo", 500);
     }
     res.status(200).json({ msg: `deleted todo with id ${id}` });

@@ -14,13 +14,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors({ origin: `http://localhost:5000/` }));
-app.use("/todos", todoRouter);
 app.use(errorHandler);
 
+// routes
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
-
+app.use("/todos", todoRouter);
 app.all("*", (req, res) => {
   res.send("404 not found");
 });

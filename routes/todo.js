@@ -1,13 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../model/todo");
-const {
-  getAllTodos,
-  createTodo,
-  getTodo,
-  updateTodo,
-  deleteTodo,
-} = require("../controller/todo");
+const { getAllTodos, createTodo, getTodo, updateTodo, deleteTodo } = require("../controller/todo");
 
 // routes
 router.get("/", getAllTodos);
